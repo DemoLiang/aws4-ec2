@@ -1,25 +1,3 @@
-# aws4-ec2
-aws4 ec2 access key and secret key sign http request
-
-
-
-#  aws4 ec2签名校验
-
-具体可以参考main函数示例
-
-如果需要移除部分字段，只需要将对应的加密函数中的某些header字段移除即可，比如移除host字段：
-
-```go
-	requestData := bytes.NewBufferString("")
-	//移除HOST字段
-	//r.Header.Set(headKeyHost, r.Host)
-
-	requestData.Write([]byte(r.Method))
-	requestData.Write(lf)
-```
-
-## 参考示例：
-```go
 package main
 
 import (
@@ -59,5 +37,3 @@ func main() {
 	}
 	log.Printf("sign success and check success")
 }
-
-```
