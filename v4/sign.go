@@ -11,7 +11,6 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/url"
-	"path/filepath"
 	"sort"
 	"strings"
 	"time"
@@ -97,7 +96,7 @@ func writeURI(r *http.Request, requestData io.Writer) {
 		path = path[:len(path)-len(r.URL.RawQuery)-1]
 	}
 	slash := strings.HasSuffix(path, "/")
-	path = filepath.Clean(path)
+	//path = filepath.Clean(path)
 	if path != "/" && slash {
 		path += "/"
 	}
